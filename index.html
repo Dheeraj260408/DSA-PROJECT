@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dinner Rush: Menu Explorer</title>
+<link rel="stylesheet" href="style.css"></head>
+<body><div class="wrap">
+
+<section id="start" class="card center">
+<div style="font-size:54px">🍛</div>
+<h1>Food Explorer</h1>
+<p class="muted">You’re the customer. Fix your own budget, then order as many dishes as you can fit in it.</p>
+<label class="t" for="budget">Your budget (₹)</label>
+<input id="budget" type="number" inputmode="numeric" min="100" max="3000" placeholder="800">
+<div class="err" id="err"></div>
+<div class="seg" id="sizes"><button data-n="7" aria-pressed="false">7 dishes</button><button data-n="15" aria-pressed="true">15 dishes</button><button data-n="31" aria-pressed="false">31 dishes</button><button data-n="63" aria-pressed="false">63 dishes</button></div>
+<div class="seg" id="modes" style="margin:12px 0"><button data-m="sorted" aria-pressed="true">Menu sorted by price</button><button data-m="linear" aria-pressed="false">Messy menu</button></div>
+<ol><li>Prices are hidden. Tap a dish to check it. Checks cost you score.</li><li>On a sorted menu, check the middle dish: it rules out half the menu.</li><li>Order any dish you can afford. Prices you’ve seen stay known, and you can order a dish again.</li><li>Spend as close to your budget as possible before the 90 seconds are up.</li></ol>
+<button class="btn" id="go">Open the tab</button>
+<p class="muted" id="hi"></p>
+</section>
+
+<section id="game" hidden>
+<div class="hud"><span id="hBud"></span><span id="hSpent"></span><span id="hLeft"></span><span id="hTime"></span></div>
+<div class="bar"><i id="fill"></i></div>
+<div class="tm"><i id="tm"></i></div>
+<div class="meta"><span id="rng"></span><span><button class="btn ghost" id="tip"></button> <button class="btn ghost" id="fin">Finish order</button></span></div>
+<div class="menu" id="menu"></div>
+<div class="panel" id="panel"></div>
+<div class="tab" id="tab"></div>
+</section>
+
+<section id="end" class="card center" hidden>
+<h1>Bill, please</h1><div class="big" id="eScore"></div>
+<div class="stats" id="eStats"></div>
+<p id="eMsg"></p>
+<button class="btn" id="again">Order again</button>
+</section>
+<div id="toast"></div>
+</div>
+<script src="script.js"></script></body></html>
